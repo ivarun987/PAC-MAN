@@ -1,0 +1,107 @@
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+CIS 120 Game Project Proposal
+PennKey: javarun
+Name of TA you consulted with: Julia
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+
+===============
+=: Your Game :=
+===============
+
+- What game are you planning to implement? If it is a game of your own design,
+  or not especially well-known, provide a 2-3 sentence description of the game.
+
+  I am going to implement a version of Pac-man.
+
+- What classes and interfaces do you plan to create? How will the different
+  components of your game (the model, the GUI, etc.) interact?
+
+  I will create a Character Interface with concrete subclasses for each of the different ghosts and 
+  Pac-man and their functionality. In addition we will also have a Background Class that stores a
+  2-D Array which represents the background. The background will contain the ghosts, Pac-man,
+  and all of the little and big dots that Pac-man has to eat.
+
+- What do you think will be the most challenging thing to implement?
+
+  I think the animations will be the hardest to implement as every direction has a different 
+  animation and just when Pac-man moves he has to open and close his mouth. 
+
+====================
+=: Core Concept 1 :=
+====================
+
+Concept 1: 2D ARRAY
+
+- What specific feature of your game will be implemented using this concept?
+
+  A 2D Array makes sense to represent the background as a grid of tiles.
+  It will be easy to implement the ghost's algorithms using this tile structure.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+  It makes sense to implement a grid because the board cannot change size and its a regular grid
+  with order and indices.
+
+====================
+=: Core Concept 2 :=
+====================
+
+Concept 2: File I/O
+
+- What specific feature of your game will be implemented using this concept?
+
+  We will keep track of a list of usernames, high scores, and display them to the user. Users can
+  add their names to the high score list once the game ends, and they can click on a button to
+  display the scores.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+  We want the high scores list to be a list of all-time high scores, which means that the scores
+  need to be saved to a file in order to persist across sessions of the game. We will then read
+  that file into our game when it launches.
+
+====================
+=: Core Concept 3 :=
+====================
+
+Concept 3: Inheritance/Subtyping
+
+- What specific feature of your game will be implemented using this concept?
+
+  I will use an inheritance hierarchy to model the different types of shapes in Pac-man.
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+  Since there are many types of character that all move and animate, it makes sense to have an
+  interface of Character. It doesn't make sense to have Character as a class opposed to an interface
+  because you would never instantiate a generic Piece. Additionally, it makes sense to have each
+  type of Character (Pac-man, Inky, Pinky, Blinky and Clyde) as a different class because
+  their implementations of moving will be different from each other, as the algorithms for moving
+  to kill Pac-man are different. Blinky chases, Pinky ambushes, etc.
+  
+
+====================
+=: Core Concept 4 :=
+====================
+
+Concept 4:  Complex Search
+
+- What specific feature of your game will be implemented using this concept?
+
+  I am choosing to do a complex search because the ghosts in PacMan do not all have the same
+  behavior. They each employ a shortest path algorithm to a different target tile that is based on
+  Pacman's location. The red ghost's target tile is Pac-man's current tile, pink is four tiles in
+  front of Pac-man, the blue is based on the red ghost and Pac-man's position, and the orange ghost
+  has an if else condition based on it's distance from Pac-man. I will be using a shorter version 
+  of Dijsktra's Algorithm to find the shortest path and at every interesection find out where to go.
+  
+
+- Why does it make sense to implement this feature with this concept? Justify
+  why this is a non-trivial application of the concept in question.
+
+  This makes sense to implement because the ghost's behavior is based on Pac-man's position so that
+  they can chase him. There is no other way than to do a complex search of the map to determine
+  which way to turn at every intersection.
